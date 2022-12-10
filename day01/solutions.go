@@ -48,11 +48,8 @@ func parseInput(raw string) (ElfsLists, error) {
 	return result, nil
 }
 
-func (p *Puzzle) Part1(input string) (string, error) {
-	elfLists, err := parseInput(input)
-	if err != nil {
-		return "", err
-	}
+func (p *Puzzle) Part1(input string) string {
+	elfLists, _ := parseInput(input)
 
 	maxSum := 0
 	for _, elfList := range elfLists {
@@ -66,14 +63,11 @@ func (p *Puzzle) Part1(input string) (string, error) {
 		}
 	}
 
-	return fmt.Sprint(maxSum), nil
+	return fmt.Sprint(maxSum)
 }
 
-func (p *Puzzle) Part2(input string) (string, error) {
-	elfLists, err := parseInput(input)
-	if err != nil {
-		return "", err
-	}
+func (p *Puzzle) Part2(input string) string {
+	elfLists, _ := parseInput(input)
 
 	var listSum []int
 	for _, elfList := range elfLists {
@@ -88,5 +82,9 @@ func (p *Puzzle) Part2(input string) (string, error) {
 	L := len(listSum)
 	sumTop3 := listSum[L-1] + listSum[L-2] + listSum[L-3]
 
-	return fmt.Sprint(sumTop3), nil
+	return fmt.Sprint(sumTop3)
+}
+
+func (p *Puzzle) Notes() string {
+	return ""
 }

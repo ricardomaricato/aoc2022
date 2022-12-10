@@ -1,32 +1,30 @@
-package day01
+package day02
 
 import (
 	"os"
 	"testing"
 )
 
+// A e X - Pedra - 1 ponto
+// B e Y - Papel - 2 pontos
+// C e Z - Tesoura - 3 pontos
+
+// 0 — Perdeu
+// 3 — Empate
+// 6 — Ganhou
+
 var p = &Puzzle{}
-var exampleInput = `1000
-2000
-3000
-
-4000
-
-5000
-6000
-
-7000
-8000
-9000
-
-10000`
+var exampleInput = `A Y
+B X
+C Z
+`
 
 func TestPart1(t *testing.T) {
 	tests := []struct {
 		Input    string
 		Expected string
 	}{
-		{exampleInput, "24000"},
+		{exampleInput, "15"},
 	}
 
 	for i, tt := range tests {
@@ -38,7 +36,7 @@ func TestPart1(t *testing.T) {
 
 	data, _ := os.ReadFile("input.txt")
 	solution := p.Part1(string(data))
-	if solution != "72017" {
+	if solution != "14827" {
 		t.Errorf("Solution for Part1: %s", solution)
 	}
 }
@@ -48,7 +46,7 @@ func TestPart2(t *testing.T) {
 		Input    string
 		Expected string
 	}{
-		{exampleInput, "45000"},
+		{exampleInput, "12"},
 	}
 
 	for i, tt := range tests {
@@ -60,7 +58,7 @@ func TestPart2(t *testing.T) {
 
 	data, _ := os.ReadFile("input.txt")
 	solution := p.Part2(string(data))
-	if solution != "212520" {
+	if solution != "13889" {
 		t.Errorf("Solution for Part2: %s", solution)
 	}
 }
